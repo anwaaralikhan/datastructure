@@ -12,3 +12,8 @@ When solved, the time complexity will come to `O(nLogn)`.
 
 This is true for the worst, average and best case since it will always divide the array into two and then merge.
 The space complexity of the algorithm is `O(n)` as we're creating temporary arrays in every recursive call.
+
+
+### Algorithm
+
+``````
