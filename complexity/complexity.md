@@ -1,9 +1,4 @@
 Time Complexities of all Sorting Algorithms
-Following is a quick revision sheet that you may refer at last minute
-
- 
-
-Time Complexity
 
 Algorithm | Best|Average|Worst
 --------| ---------- |----------| ------
