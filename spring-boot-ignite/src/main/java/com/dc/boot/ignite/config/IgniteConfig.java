@@ -45,7 +45,7 @@ public class IgniteConfig {
 		igniteConfig.setDiscoverySpi(discovery);
 		igniteConfig.setAtomicConfiguration(atomicCfg);
 		igniteConfig.setDataStorageConfiguration(dataStorageCfg);
-		igniteConfig.setPeerClassLoadingEnabled(true);
+		igniteConfig.setPeerClassLoadingEnabled(false);
 		igniteConfig.setClientMode(true);
 		igniteConfig.setIgniteInstanceName(igniteInstanceName);
 
