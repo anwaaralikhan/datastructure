@@ -12,6 +12,7 @@ import org.apache.ignite.configuration.DataStorageConfiguration;
 import org.apache.ignite.configuration.IgniteConfiguration;
 import org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi;
 import org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder;
+import org.apache.ignite.springdata20.repository.config.EnableIgniteRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
@@ -19,12 +20,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@EnableIgniteRepositories
 public class IgniteConfig {
 	
 	@Value("${app.ignite.instance.name}")
 	private String igniteInstanceName;
-	
-	
 
 	public IgniteConfiguration igniteConfiguration() {
 		IgniteConfiguration igniteConfig = new IgniteConfiguration();
@@ -46,7 +46,7 @@ public class IgniteConfig {
 		igniteConfig.setAtomicConfiguration(atomicCfg);
 		igniteConfig.setDataStorageConfiguration(dataStorageCfg);
 		igniteConfig.setPeerClassLoadingEnabled(true);
-		igniteConfig.setClientMode(false);
+		igniteConfig.setClientMode(true);
 		igniteConfig.setIgniteInstanceName(igniteInstanceName);
 
 		return igniteConfig;
