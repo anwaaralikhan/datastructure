@@ -19,6 +19,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.dc.boot.ignite.annotation.Loggable;
+
 @Configuration
 @EnableIgniteRepositories
 public class IgniteConfig {
@@ -26,6 +28,8 @@ public class IgniteConfig {
 	@Value("${app.ignite.instance.name}")
 	private String igniteInstanceName;
 
+	
+	@Loggable
 	public IgniteConfiguration igniteConfiguration() {
 		IgniteConfiguration igniteConfig = new IgniteConfiguration();
 
@@ -35,7 +39,7 @@ public class IgniteConfig {
 		discovery.setIpFinder(ipFinder);
 
 		AtomicConfiguration atomicCfg = new AtomicConfiguration();
-		atomicCfg.setCacheMode(CacheMode.REPLICATED);
+		atomicCfg.setCacheMode(CacheMode.LOCAL);
 
 		DataStorageConfiguration dataStorageCfg = new DataStorageConfiguration();
 		DataRegionConfiguration dataRegionCfg = new DataRegionConfiguration();
@@ -53,8 +57,8 @@ public class IgniteConfig {
 	}
 	
 	
-	@Autowired
 	@Bean
+	@Autowired
 	public Ignite igniteInstance(ApplicationContext context) throws IgniteCheckedException {
 		return IgniteSpring.start(igniteConfiguration(),context);
 	}
