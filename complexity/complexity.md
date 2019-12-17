@@ -1,4 +1,4 @@
-Time Complexities of all Sorting Algorithms
+Time Complexities of all `Sorting Algorithms`
 
 Algorithm | Best|Average|Worst|Stable|Method
 --| -- | --| --|--|--|
